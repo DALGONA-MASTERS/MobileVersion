@@ -3,10 +3,17 @@ import React from 'react'
 import { Tabs } from 'expo-router'
 import Ionicons from '@expo/vector-icons/Ionicons'
 import { Colors } from '../../constants/Colors'
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import HomeScreen from './home'
+import ProfileScreen from './profile'
+import SearchScreen from './search'
+
+const Tab = createBottomTabNavigator()
 
 const TabLayout = () => {
   return (
-    <Tabs
+    <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: Colors.PRIMARY,
         headerShown: false,
@@ -22,8 +29,9 @@ const TabLayout = () => {
         },
       }}
     >
-      <Tabs.Screen
-        name="home"
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
         options={{
           tabBarLabel: 'Accueil',
           tabBarIcon: ({ color }) => (
@@ -31,8 +39,9 @@ const TabLayout = () => {
           ),
         }}
       />
-      <Tabs.Screen
-        name="detail"
+      <Tab.Screen
+        name="Search"
+        component={SearchScreen}
         options={{
           tabBarLabel: 'Recherche',
           tabBarIcon: ({ color }) => (
@@ -40,8 +49,9 @@ const TabLayout = () => {
           ),
         }}
       />
-      <Tabs.Screen
-        name="message"
+      <Tab.Screen
+        name="Message"
+        component={ProfileScreen}
         options={{
           tabBarLabel: 'Messages',
           tabBarIcon: ({ color }) => (
@@ -53,7 +63,7 @@ const TabLayout = () => {
           ),
         }}
       />
-    </Tabs>
+    </Tab.Navigator>
   )
 }
 

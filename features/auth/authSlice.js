@@ -17,7 +17,6 @@ const authSlice = createSlice({
     setToken: (state, action) => {
       console.log(action.payload)
       state.token = action.payload
-      document.cookie = `jwt=${action.payload}; path=/; samesite=strict; secure`
     },
     setUser: (state, action) => {
       state.user = action.payload

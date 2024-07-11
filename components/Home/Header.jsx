@@ -4,8 +4,11 @@ import { Ionicons } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { FontAwesome6 } from '@expo/vector-icons'
 import { Link, useRouter } from 'expo-router'
+import { useNavigation } from '@react-navigation/native'
 
 const Header = () => {
+
+  const navigation = useNavigation()
   return (
     <View
       style={{
@@ -35,12 +38,9 @@ const Header = () => {
           style={{ width: 160, height: 100 }}
         />
         <View style={{ display: 'flex', flexDirection: 'row', gap: 16 }}>
-          <TouchableOpacity>
-            <Link href={'/evenement/events'}>
-              <Ionicons name="calendar-clear-outline" size={24} color="black" />
-            </Link>
+          <TouchableOpacity onPress={() => navigation.navigate('Evenements')}>
+            <Ionicons name="calendar-clear-outline" size={24} color="black" />
           </TouchableOpacity>
-
           <TouchableOpacity>
             <MaterialCommunityIcons
               name="tree-outline"
@@ -52,9 +52,7 @@ const Header = () => {
             <Ionicons name="notifications-outline" size={26} color="black" />
           </TouchableOpacity>
           <TouchableOpacity>
-            <Link href={'/profile/user'}>
-              <FontAwesome6 name="circle-user" size={24} color="black" />
-            </Link>
+            <FontAwesome6 name="circle-user" size={24} color="black" />
           </TouchableOpacity>
         </View>
       </View>

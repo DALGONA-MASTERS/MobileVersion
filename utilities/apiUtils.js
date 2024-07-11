@@ -1,17 +1,17 @@
 import { logout, setToken, setUser } from '../features/auth/authSlice'
 
-export const handleResponse = (result, dispatch, navigate, route) => {
+export const handleResponse = (result, dispatch, navigation, route) => {
   if (result.status === 'fulfilled') {
     const { token, ...userWithoutToken } = result.data
 
     console.log('Request successful')
     dispatch(setUser({ ...userWithoutToken.user }))
     dispatch(setToken(token))
-    navigate(route)
+    navigation.navigate(route)
   } else if (result.status === 'rejected') {
     console.log('Request failed')
     dispatch(logout())
-    navigate('/')
+    navigate('SignIn')
   } else if (result.status === 'pending') {
     console.log('Pending...')
   }
@@ -33,7 +33,6 @@ export const handleFetchedData = (result, dispatch, setState) => {
 export const handleAddData = (result, dispatch, addState) => {
   console.log('1')
   if (result.status === 'fulfilled') {
-    
     console.log(result.data)
     dispatch(addState(result.data))
     console.log('Request successful')
