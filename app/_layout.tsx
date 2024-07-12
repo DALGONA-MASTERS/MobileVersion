@@ -19,7 +19,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { Tabs } from 'expo-router'
 import profile from './(tabs)/profile'
 import TabLayout from './(tabs)/_layout'
-import Evenement from './(tabs)/evenement/events'
+import Evenement from './evenement/events'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()

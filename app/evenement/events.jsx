@@ -8,9 +8,9 @@ import {
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { useNavigation, useRouter } from 'expo-router'
-import Avenire from '../../../components/eventss/Avenire'
-import Similare from '../../../components/eventss/Similare'
-import Disponible from '../../../components/eventss/Disponible'
+import Avenire from './../../components/eventss/Avenire'
+import Similare from './../../components/eventss/Similare'
+import Disponible from './../../components/eventss/Disponible'
 
 const events = () => {
   const navigate = useNavigation()
